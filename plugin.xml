@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-openbox"
+    version="1.0.0">
+    <name>OpenBox</name>
+    <description>YouxiBox opendoor</description>
+    <author>Peng Heng</author>
+    <license>Apache 2.0</license>
+    <keywords>open,box</keywords>
+	
+	<js-module src="www/OpenBox.js" name="OpenBox">
+		<clobbers target="boxop" />
+	</js-module>
+    <!-- android -->
+    <platform name="android">
+        
+		<source-file src="src/android/YouxiBox.java" target-dir="src/bskr365/com/youxibox" />
+        
+		<config-file parent="/*" target="res/xml/config.xml">
+            <feature name="YouxiBox">
+                <param name="android-package" value="bskr365.com.youxibox.YouxiBox" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/*">  
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />  
+        </config-file> 
+       
+    </platform>
+
+</plugin>
